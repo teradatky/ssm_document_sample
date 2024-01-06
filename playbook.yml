@@ -1,0 +1,9 @@
+---
+- name: provisioning ec2
+  hosts: localhost
+
+  tasks:
+    - name: change hostname
+      ansible.builtin.hostname:
+        name: "{{ hostname }}"
+      become: yes

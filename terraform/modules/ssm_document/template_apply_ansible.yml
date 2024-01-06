@@ -1,16 +1,21 @@
+---
 schemaVersion: "2.2"
-description: "ansibleを適用するSSMドキュメント"
+description: "既存のEC2にAnsibleで設定を行います"
+
+parameters:
+  Hostname:
+    type: "String"
+    description: "設定するホスト名を入力してください"
 
 mainSteps:
-  - action: aws:runShellScript
-    name: BaseSettings
+  - action: "aws:runShellScript"
+    name: "runShellScript"
     inputs:
-      timeoutSeconds: "600"
       runCommand:
-        - echo "install required tools"
-        - dnf -y install git ansible
-        - echo "clone repository"
-        - git clone https://${git_repository_url}
-        - cd ssm_documrnt_sample/ansible
-        - echo "apply ansible"
-        - ansible-playbook -i inventory.ini -e '{ "hostname":"{{HostName}}" }' ${playbook_file}
+        - echo "install tools"
+        - sudo dnf -y install ansible git
+        - echo "clone git repository"
+        - git clone https://github.com/${github_username}/${github_reponame}.git
+        - echo "apply ansible playbook"
+        - cd ${github_reponame}
+        - ansible-playbook -e hostname="{{ Hostname }}" ${playbook_name}
