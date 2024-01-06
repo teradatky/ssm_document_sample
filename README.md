@@ -24,4 +24,4 @@ terraform apply
 
 ## 実行方法
 
-作成された SSM ドキュメント（デフォルトでは `ssm_document_sample-apply-ansible` ）を選択し、ホスト名を入力して実行する
+マネジメントコンソールから作成された SSM ドキュメント（デフォルトでは `ssm_document_sample-apply-ansible` ）を選択し、実行する
