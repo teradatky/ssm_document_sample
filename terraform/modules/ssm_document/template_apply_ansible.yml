@@ -1,0 +1,16 @@
+schemaVersion: "2.2"
+description: "ansibleを適用するSSMドキュメント"
+
+mainSteps:
+  - action: aws:runShellScript
+    name: BaseSettings
+    inputs:
+      timeoutSeconds: "600"
+      runCommand:
+        - echo "install required tools"
+        - dnf -y install git ansible
+        - echo "clone repository"
+        - git clone https://${git_repository_url}
+        - cd ssm_documrnt_sample/ansible
+        - echo "apply ansible"
+        - ansible-playbook -i inventory.ini -e '{ "hostname":"{{HostName}}" }' ${playbook_file}
