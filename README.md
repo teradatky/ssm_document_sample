@@ -1,12 +1,12 @@
 # ssm_document_sample
 
-SSMドキュメントを利用し、EC2をプロビジョニング（ここではホスト名の変更）するサンプル
+SSM ドキュメントを利用し、EC2 をプロビジョニング（ここではホスト名の変更）するサンプル
 
-🚧解説記事工事中🚧
+解説記事 [AWS Systems Manager ドキュメント (SSM ドキュメント) で EC2 をプロビジョニング](https://zenn.dev/teradatky/articles/ssmdocument-ec2-provisoining-20240107)
 
 ## 前提条件
 
-Systems Manager が接続可能な EC2 が存在すること
+Session Manager が接続可能な EC2 が存在すること
 
 [Session Manager のセットアップ](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-getting-started.html)
 
